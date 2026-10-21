@@ -1,7 +1,7 @@
 
 
 
-<H1> I dont have the design in mind yet</H1>
+<H1> </H1>
 
 
 
@@ -33,7 +33,7 @@
 |                                                   |
 | - 7 years customer service experience             |
 | - Working at Whole Foods                          |
-| - Studying Cybersecurity and fullstack developer  |   |
+| - Studying Cybersecurity and fullstack developer  |   
 | - Goal: Become a SOC Analyst & fullstack developer|
 +---------------------------------------------------+
 Projects
