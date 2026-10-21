@@ -7,133 +7,161 @@
         <title>Document</title>
     </head>
     <body>
-        <main>
-            <header>
+            
                 
-                <nav class="terminal-nav">
-                    <img src="https://via.placeholder.com/150" alt="Logo" class="logo-img">
-                    
-                    <ul class="nav-links">
-                        <li><a href="#HOME">HOME</a></li>
-                        <li><a href="#ABOUT_and_Contact">About_and_Contact</a></li>
-                        <li><a href="#Project-node">Projects</a></li>
+            <header class="matrix-header">
+                <div class="logo">
+                    <span class="system-status">●</span> LEIF_PORTFOLIO
+                </div>
+                <nav class="matrix-nav">
+                    <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#Project-node" class="nav-link">Projects</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                     </ul>
                 </nav>
+            </header>
+
+</main>
+<section id="home" class="welcome-section">
+    <div class="terminal-container">
+    <!-- Window Title Control Bar -->
+    <div class="terminal-bar">
+        <span class="window-dot red"></span>
+        <span class="window-dot yellow"></span>
+        <span class="window-dot green"></span>
+        <span class="window-title">system_init.sh</span>
+    </div>
+
+    <!-- Main Text Output Screen -->
+    <div class="terminal-screen">
+        <h1 class="matrix-typing"><span class="prompt">></span> Hello, I'm Leif</h1>
+        
+        <p class="matrix-text comment"># Initialize profile narrative...</p>
+        <p class="matrix-text">
+            I am a full-stack engineer relaunching my development workflow. After taking a couple of years away from active coding, I am diving back in to sharpen my skills, deploy new application architectures, and build out this active workspace.
+        </p>
+
+        <p class="matrix-text comment"># Core Stack Inventory</p>
+        <p class="matrix-text">
+            I possess a robust full-stack foundation refined through multiple intensive tracks. My experience spans core frontend engineering workflows—including <strong class="glow-text">HTML, CSS, JavaScript, React, Node.js, Express.js, and MongoDB</strong>—alongside deep specialization in performant backends driven by <strong class="glow-text">Python, Flask, Django, and MySQL</strong>.
+        </p>
+
+        <p class="matrix-text comment"># Advanced Studies & Specializations</p>
+        <p class="matrix-text">
+            Currently, I am expanding my runtime parameters by studying <strong class="glow-text">Cybersecurity and Networking</strong>. As I construct new deployment pipelines, I am actively focusing on strategically integrating AI assistance directly into my engineering workflows.
+        </p>
+
+        <div class="status-box">
+            <span class="status-indicator">●</span> SYSTEM STATUS: ACTIVE_DEVELOPMENT_ONLINE
+        </div>
+    </div>
+    </div>
+</section>
 
 
-                <section>
-                    <h1 class="matrix-typing">Hi I'm Leif </h1>
-                    <!-- im using Image place holder for as I work as skeleton for now-->
-                    <p class="matrix-text">
-                    I am excited to share my projects and experiences with you. After taking a couple of years away from coding, I am jumping back in to sharpen my skills, explore new technologies, and build out this portfolio. 
-                    </p>
-                    <p class="matrix-text">
-                        I have a strong foundation in full-stack and front-end development. During my time at Coding Dojo, I studied three full-stack paths and two front-end courses, mastering technologies like <strong>HTML, CSS, JavaScript, React, Node.js, Express.js, and MongoDB</strong>.
-                        <strong> I am also have python flask, Django, Mysql as one kind of the most studied and understood backend</strong>
-                    </p>
-                    <p class="matrix-text">
-                        Currently, I am expanding my horizons outside of traditional development by studying <strong>Cyber Security and networking</strong>. As I build new projects, I will also be exploring how to strategically integrate AI assistance into my workflow. 
-                    </p>
-                    <p class="matrix-text">
-                        Right now, you can view a few of my active projects below. I will be continuously updating this page with fresh code as I finish new assignments and learn new skills!
-                    </p>
-            </section>
-        </main>
+        <hr>
+
 
         <section id="Project-node">
-                                        <!-- Featured Projects --->
-                <h2 class="bold-text"> Projectss</h2>
+    <!-- Centered Heading at the very top of main -->
+    <h2>// System_Archive: Deployments</h2>
 
-                                    <!---- Ongoing Projects --->
+    <!-- Side-by-Side Flex Layout Container -->
+    <div class="project-flex-layout">
+        
+        <!-- Left Side: Stacked Project Cards Column -->
+        <div class="projects-column">
+            
+            <!-- Project 1: Kusina POS -->
             <article class="project-node">
                 <h3>Kusina POS</h3>
-                <img src="https://via.placeholder.com/150" alt="Books Project Image">
-                <p> A simple Point of Sale application for a local restaurant, built with Python and Tkinter</p>
-                <p> <strong>Technologies Used:</strong> Python, Tailwind, mySql</p>
+                <img src="https://via.placeholder.com/150" alt="Kusina POS Project Image">
+                <p>A simple Point of Sale application for a local restaurant, built with Python and Tkinter.</p>
+                <p><strong>Technologies Used:</strong> Python, Tailwind, MySQL</p>
             </article>
 
-                                    <!-- Past Projects --->
+            <!-- Project 2: Books -->
             <article class="project-node"> 
                 <h3>Books</h3>
                 <img src="https://via.placeholder.com/150" alt="Books Project Image">
-                <p>This project i made to showcase my skills in web development. as python backend developer</p>
-                <p> <strong>Technologies Used:</strong> Python, Flask, Django, MySQL</p>
-                <p> A Full-Stack Web Application managining book favorites and shows readers </p>
-                <a href="https://github.com/leif23/Books-Solo-Project.git" alt="View on GitHub">View on GitHub</a>
+                <p>This project was made to showcase my skills in web development as a Python backend developer.</p>
+                <p><strong>Technologies Used:</strong> Python, Flask, Django, MySQL</p>
+                <p>A Full-Stack Web Application managing book favorites and readers.</p>
+                <a href="https://github.com/leif23/Books-Solo-Project.git" class="github-link">View on GitHub</a>
             </article>
                                     
+            <!-- Project 3: Graduating in Life -->
             <article class="project-node">
                 <h3>Graduating in Life</h3>
-                <img  src="https://via.placeholder.com/150" alt="Graduating in Life Project Image">                
-                <p> Event "prom" planner application for a community of Assisted Living or Nursing Home seniors and elders. Even planner could also be used for other events like high schools, etc.</p>
-                <p> <strong>Technologies Used:</strong> HTML, CSS, Python, Flask, MySQL</p>
-                <p>My contributions to this project are database system design and implementation </p>
-                <a href="https://github.com/etherealsaguaro/Graduating-In-Life.git" alt="View on GitHub">View on GitHub</a>
+                <img src="https://via.placeholder.com/150" alt="Graduating in Life Project Image">                
+                <p>Event "prom" planner application for a community of Assisted Living or Nursing Home seniors and elders.</p>
+                <p><strong>Technologies Used:</strong> HTML, CSS, Python, Flask, MySQL</p>
+                <p>My contributions to this project are database system design and implementation.</p>
+                <a href="https://github.com/etherealsaguaro/Graduating-In-Life.git" class="github-link">View on GitHub</a>
             </article>
-        </section>
-<hr>
-        <!-- ==========================================
-            About Section
-            ========================================== -->
 
-        <section id="ABOUT_and_Contact">
-            <h2>About Me</h2>
-            
-            <h3>Full-Stack Developer & Tech Enthusiast</h3>
-            
-            <p>
-                Hello! I'm a developer specializing in building clean, functional applications from the database up. With a strong background in full-stack Python development, I enjoy solving complex structural puzzles and crafting intuitive user experiences.
-            </p>
+        </div>
+
+
+    </div>
+</section>
+
+
+<hr>
+    <!-- ABOUT SECTION -->
+<section id="about" class="matrix-section">
+    <h2>// System_Manifest: About_Me</h2>
+    <div class="matrix-container">
+    <div class="terminal-window">
+        <div class="terminal-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-title">identity_profile.sh</span>
+        </div>
+        <div class="terminal-body">
+        <p><span class="prompt">></span> <span class="cyan">cat</span> self_description.txt</p>
+        <p class="response-text">I am a full-stack developer specializing in building clean web architectures and network integrations. Deeply focused on system efficiency, minimal layouts, and building performant backend engines like the Kusina POS framework.</p>
         
-            <p>
-                Currently, I am expanding my expertise by diving deep into the worlds of cybersecurity and computer networking. Combining robust backend application development with sound security principles allows me to engineer tools that are both powerful and safe.
-            </p>
+        <p><span class="prompt">></span> <span class="cyan">ls</span> core_skills/</p>
+        <ul class="skills-list">
+            <li>Python / Django</li>
+            <li>HTML5 / Pure CSS</li>
+            <li>Git & Version Control</li>
+            <li>Database Architecture</li>
+        </ul>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="matrix-section">
+    <h2>// Establish_Uplink: Contact</h2>
+    <div class="matrix-container small-container">
+        <form class="matrix-form" action="#" method="POST">
+        <div class="form-group">
+            <label for="name">_IDENTIFIER:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter name...">
+        </div>
         
-            <h4>Core Tech Stack & Focus Areas</h4>
-            <ul>
-                <li>Python & Django</li>
-                <li>Cybersecurity Fundamentals</li>
-                <li>JavaScript & React</li>
-                <li>Networking & Linux</li>
-                <li>MySQL & MongoDB</li>
-                <li>Tailwind CSS</li>
-            </ul>
-        </section>
+        <div class="form-group">
+        <label for="email">_COMM_ROUTE:</label>
+        <input type="email" id="email" name="email" required placeholder="Enter email address...">
+        </div>
         
-        <hr>
+        <div class="form-group">
+            <label for="message">_TRANSMISSION:</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
+        </div>
         
-        <!-- ==========================================
-            CONTACT SECTION (Plain Text & Semantic HTML)
-            ========================================== -->
-        <section id="contact">
-            <h2>Get In Touch</h2>
-            <p>Have a question or want to work together? Drop a line below.</p>
-        
-            <form action="#" method="POST">
-                <div>
-                    <label for="name">Your Name:</label>
-                    <input type="text" name="name" id="name" required>
-                </div>
-        
-                <div>
-                    <label for="email">Email Address:</label>
-                    <input type="email" name="email" id="email" required>
-                </div>
-        
-                <div>
-                    <label for="subject">Subject:</label>
-                    <input type="text" name="subject" id="subject" required>
-                </div>
-        
-                <div>
-                    <label for="message">Message:</label>
-                    <textarea name="message" id="message" rows="5" required></textarea>
-                </div>
-        
-                <div>
-                    <button type="submit">Send Message</button>
-                </div>
-            </form>
-        </section>
+        <button type="submit" class="matrix-btn">EXECUTE_TRANSMIT</button>
+        </form>
+    </div>
+</section>
+
+
     </body>
     </html>

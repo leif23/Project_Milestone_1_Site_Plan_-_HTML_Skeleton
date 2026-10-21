@@ -16,6 +16,7 @@ body {
     align-items: center;
     min-height: 100%;
     margin-bottom: 100px;
+    scroll-behavior: smooth;
 }
 
 /* --- Layout Structure Fixes --- */
@@ -24,7 +25,7 @@ main, .terminal-body {
     max-width: 900px; /* Wraps your content inside a clean terminal column width */
     display: flex;
     flex-direction: column; /* Stacks all content blocks vertically inside main */
-    gap: 3rem; /* Adds generous spacing between sections */
+    ga: 3rem; /* Adds generous spacing between sections */
 }
 
 /* Keeps columns from breaking inside sections */
@@ -41,39 +42,103 @@ section, .hero-section, .projects-section, .grid-section {
 }
 
 /** Nav Matrix **/
-.terminal-nav {
+    /* Core Theme Variables */
+    :root {
+    --matrix-bg: #0d0d0d;
+    --matrix-glow: #00ff41;
+    --matrix-dim: #008f11;
+    --matrix-text: #fafafa;
+    }
+
+
+.matrix-header {
+    position: fixed; /* Or sticky, but fixed guarantees it floats independently */
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    /* Bring it to the absolute front layer */
+    z-index: 9999; 
+    
+    /* Ensure background isn't completely transparent */
+    background-color: #0d0d0d; 
+    
+    /* Keep your existing flex and matrix properties below */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--matrix-dim);
+}
+
+
+
+    /* Sticky Header Wrapper */
+    .matrix-header {
+    position:sticky;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 900px;
-    border-bottom: 1px dashed #004411;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
-}
-
-.nav-links {
+    z-index: 1000;
+    box-sizing: border-box;
+    background-color: rgba(13, 13, 13, 0.95);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid var(--matrix-dim);
     display: flex;
-    flex-direction: row;
-    gap: 0.6rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
+    }
+
+    /* Logo Design */
+    .logo {
+    color: var(--matrix-glow);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    letter-spacing: 2px;
+    }
+
+    .system-status {
+    animation: blink 1.5s infinite;
+    margin-right: 5px;
+    }
+
+    /* Navigation List */
+    .matrix-nav ul {
+    display: flex;
     list-style: none;
-    padding-left: 0.5rem;
-}
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    }
 
-.nav-links a { 
-    color: #00AA22;
+    /* Navigation Links */
+    .nav-link {
+    color: var(--matrix-text);
     text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 0.95rem;
-    padding: 0.2rem 0.5rem;
-    display: inline-block;
-    transition: all 0.2s ease;
-}
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid transparent;
+    }
 
-.nav-links a:hover {
-    color: #33FF66;
-    background-color: rgba(0, 255, 51, 0.1);
-}
+    /* Hover & Active States */
+    .nav-link:hover, 
+    .nav-link.active {
+    color: var(--matrix-glow);
+    border: 1px solid var(--matrix-glow);
+    box-shadow: 0 0 8px var(--matrix-dim);
+    background-color: rgba(0, 143, 17, 0.1);
+    }
 
+    /* Status Dot Blinking Animation */
+    @keyframes bink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+    }
 /** Animation Typing **/
 .matrix-typing {
     color: #33FF66;
@@ -94,87 +159,458 @@ section, .hero-section, .projects-section, .grid-section {
 
 @keyframes type-effect {
     from { width: 0; }
-    to { width: 12ch; } /* Fixed: Keeps end point at 12 characters wide */
+    to { width: 19ch} /* Fixed: Keeps end point at 12 characters wide */
 }
 
 @keyframes blink-cursor {
     from, to { border-color: transparent }
-    50% { border-color: #33FF66; }
+    50% { border-color: #33F666}
+
 }
+
+
+/* --- Welcome Section Frame --- */
+.welcome-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+    box-sizing: border-box;
+    background-color: #0d0d0d;
+    }
+
+/* --- Terminal Chassis Display --- */
+.terminal-container {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(0, 10, 0, 0.35);
+    border: 1px solid #005511;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0, 143, 17, 0.15);
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    }
+
+/* --- Window Window Options Header --- */
+.terminal-bar {
+    background: #141414;
+    padding: 0.85rem 1.2rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #005511;
+    }
+
+.window-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    }
+.window-dot.red { background: #ff5f56; }
+.window-dot.yellow { background: #ffbd2e; }
+.window-dot.green { background: #27c93f; }
+
+.window-title {
+    color: #777;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 1px;
+    }
+
+/* --- Core Screen Logic --- */
+.terminal-screen {
+    padding: 2.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: #fafafa;
+    line-height: 1.7;
+    }
+
+/* --- Typographical System --- */
+.matrix-typing {
+    color: #00ff41;
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    }
+
+.matrix-typing .prompt {
+    color: #ffffff;
+    animation: pulse 1.2s infinite;
+    }
+
+.matrix-text {
+    font-size: 1.05rem;
+    margin-bottom: 1.8rem;
+    color: #c8ffc8;
+    text-align: justify;
+    }
+
+/* Green Terminal Comment Colors */
+.matrix-text.comment {
+    color: #008f11;
+    margin-bottom: 0.4rem;
+    font-weight: bold;
+}
+
+/* Text Element Glow Emphasizers */
+.glow-text {
+    color: #00ff41;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
+}
+
+/* Footer Uplink Box Status */
+.status-box {
+    margin-top: 3rem;
+    padding: 1rem;
+    background: rgba(0, 255, 65, 0.04);
+    border: 1px dashed #008f11;
+    color: #00ff41;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    display: inline-block;
+    }
+
+.status-indicator {
+    animation: blink 1.5s infinite;
+    margin-right: 8px;
+    }
+
+/* --- Dynamic Animations Keyframes --- */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+    }
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+    }
+
+/* Responsive Scaling for Small Views */
+@media (max-width: 768px) {
+    .terminal-screen {
+        padding: 1.5rem;
+    }
+    .matrix-typing {
+        font-size: 25rem;
+    }
+    .matrix-text {
+        font-size: 0.95rem;
+    }
+}
+
 
 /* --- Project Nodes / Cards --- */
 
-#Project-node{
+
+/* ==================================================
+    PROJECTS SECTION
+================================================== */
+
+#projects {
     display: flex;
-    margin:auto;
-    margin: 100vh;
+    flex-direction:row;
+    align-items: center;
+    padding: 5rem 10%;
+    min-height: 100vh;
 }
 
-h2{
-justify-content: center;
-margin-bottom: 10vm;
-}
-.project-node {
-    justify-content: space-between;
+#projects h2 {
+    text-align: center;
+    margin-bottom: 3rem;
     color: #00DD22;
-    padding: 1.5rem;
-    border: 1px dashed #005511;     
-    background: rgba(0, 10, 0, 0.3); 
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+/* ==================================================
+   PROJECT CARDS
+================================================== */
+
+/* --- New Parent Row Layout Wrapper --- */
+/* --- Combined & Fixed Section Container --- */
+#Project-node {
+    flex-direction: row;      /* Places cards and terminal side-by-side */
+    gap: 3rem;                /* Spacing between the projects column and terminal column */
+    width: 100%;
+    max-width: 1200px;        /* Keeps everything contained nicely on larger screens */
+    margin: 0 auto;           /* Centers the container horizontally on the screen */
+    min-height: 100vh;        /* Keeps the full-screen terminal height feel */
+    
+    /* Crucial Fixes for Top Alignment: */
+    align-items: flex-start;  /* Forces everything to align tightly to the absolute top edge */
+    padding-top: 4rem;        /* Gives you controlled spacing below your nav bar instead of dead centering */
+    box-sizing: border-box;
+}
+
+/* --- Project Column Wrapper --- */
+/* --- Outer Section Container --- */
+#Project-node {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding-top: 6rem;        /* Keeps content sitting safely below your fixed nav bar */
+    box-sizing: border-box;
+}
+
+/* --- Clean Centered Heading Rules --- */
+h2 {
+    color: #00DD22;
+    text-align: center;       /* This now works perfectly across the full width */
+    margin-bottom: 4rem;      /* Creates clean space before the columns start */
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    width: 100%;
+}
+
+/* --- New Side-by-Side Flex Layout Container --- */
+.project-flex-layout {
+    display: flex;
+    flex-direction: row;      /* Cards and terminal side-by-side */
+    gap: 3rem;                /* Spacing between the columns */
+    width: 100%;
+    align-items: flex-start;  /* Keeps elements aligned perfectly to the top edge */
+}
+
+/* --- Project Column Wrapper --- */
+.projects-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Project Card Styles --- */
+.project-node {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    color: #00DD22;
+    border: 1px dashed #005511;
+    background: rgba(0, 20, 0, 0.25);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
     position: relative;
     overflow: hidden;
-    cursor: pointer;
-    margin-top: 1rem;
-    width: 100%; 
-    transition: background 0.2s ease, border-color 0.2s ease;
+    box-sizing: border-box;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-/* --- HOVER TRIGGER: Project Card Box Only --- */
+/* --- Terminal Column Wrapper --- */
+.terminal-column {
+    flex: 1;
+    position: sticky;
+    top: 120px;               /* Keeps terminal in view when scrolling past long lists of cards */
+}
+
+/* --- Keep all your hover animations and glow properties intact below --- */
+.project-node::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 100, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.project-node:hover::before {
+    left: 125%;
+}
+
 .project-node:hover {
+    transform: translateY(-8px);
     border-style: solid;
     border-color: #33FF66;
-    background: rgba(0, 25, 0, 0.5);
-    animation: card-flicker 0.4s linear infinite;
+    background: rgba(0, 40, 0, 0.45);
+    box-shadow:
+        0 0 10px rgba(51,255,102,.4),
+        0 0 25px rgba(51,255,102,.3),
+        0 0 50px rgba(51,255,102,.2);           
 }
 
-/* Triggers the title inside the project card to glitch out on hover */
-.project-node:hover h3 {
-    animation: text-glitch 0.3s linear infinite;
-    color: #ffffff !important; 
-}
-
-/* ==========================================================================
-THE GLITCH ANIMATION KEYFRAMES
-   ========================================================================== */
-@keyframes text-glitch {
-    0% {
-        text-shadow: 2px -1px 0 #ff0055, -2px 1px 0 #00ff33;
-        transform: skew(0deg);
+/* Mobile Responsive Adjustments */
+@media (max-width: 900px) {
+    .project-flex-layout {
+        flex-direction: column; /* Switches rows to columns seamlessly on smaller windows */
     }
-    20% {
-        text-shadow: -1px 2px 0 #ff0055, 2px -2px 0 #00ff33;
-        transform: skew(1deg);
-    }
-    40% {
-        text-shadow: 2px 1px 0 #00ffff, -1px -1px 0 #ff0055;
-        transform: skew(-1deg);
-    }
-    60% {
-        text-shadow: -2px -1px 0 #00ff33, 1px 2px 0 #00ffff;
-        transform: skew(0deg);
-    }
-    80% {
-        text-shadow: 1px -2px 0 #ff0055, -2px -1px 0 #00ff33;
-        transform: skew(1deg);
-    }
-    100% {
-        text-shadow: 2px -1px 0 #ff0055, -1px 1px 0 #00ffff;
-        transform: skew(0deg);
+    .terminal-column {
+        position: static;
+        width: 100%;
     }
 }
 
-@keyframes card-flicker {
-    0% { box-shadow: 0 0 15px rgba(51, 255, 102, 0.5); opacity: 0.98; }
-    25% { box-shadow: 0 0 8px rgba(51, 255, 102, 0.3); opacity: 1; }
-    50% { box-shadow: 0 0 18px rgba(51, 255, 102, 0.6); opacity: 0.95; }
-    75% { box-shadow: 0 0 10px rgba(51, 255, 102, 0.4); opacity: 1; }
-    100% { box-shadow: 0 0 15px rgba(51, 255, 102, 0.5); opacity: 0.99; }
+
+
+
+
+
+
+
+
+
+
+
+/* Shared Section Layouts */
+.matrix-section {
+    min-height: 100vh;       /* Forces the section to be at least 100% of viewport height */
+    box-sizing: border-box;
+    padding: 4rem 2rem;      
+    
+    /* Flexbox automatically keeps your cards, terminals, and forms dead center */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Centers content vertically */
+    align-items: center;      /* Centers content horizontally */
+    
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Ensure individual section wrappers span fully inside the flex layout */
+.matrix-container {
+    width: 100%;
+    margin-top: 2rem; /* Reduced slightly to balance the layout inside 100vh */
+    }
+
+.small-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* --- Terminal About Block --- */
+.terminal-window {
+    background: rgba(0, 10, 0, 0.4);
+    border: 1px solid var(--matrix-dim);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 143, 17, 0.15);
+}
+
+.terminal-header {
+    background: #141414;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--matrix-dim);
+}
+
+.terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+.terminal-dot.red { background: #ff5f56; }
+.terminal-dot.yellow { background: #ffbd2e; }
+.terminal-dot.green { background: #27c93f; }
+
+.terminal-title {
+    color: #888;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.terminal-body {
+    padding: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--matrix-text);
+    line-height: 1.6;
+}
+
+.prompt { color: var(--matrix-glow); font-weight: bold; }
+.cyan { color: #00ffff; }
+.response-text { margin: 0.5rem 0 2rem 1.5rem; color: #b3ffb3; }
+
+.skills-list {
+    list-style: none;
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+}
+
+.skills-list li::before {
+    content: "⚡ ";
+    color: var(--matrix-glow);
+}
+
+/* --- Matrix Form Controls --- */
+.matrix-form {
+    background: rgba(0, 10, 0, 0.3);
+    border: 1px dashed var(--matrix-dim);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.matrix-form label {
+    color: var(--matrix-glow);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.matrix-form input,
+.matrix-form textarea {
+    background: #050505;
+    border: 1px solid var(--matrix-dim);
+    color: #fff;
+    padding: 0.75rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.matrix-form input:focus,
+.matrix-form textarea:focus {
+    outline: none;
+    border-color: #33FF66;
+    box-shadow: 0 0 8px rgba(51, 255, 102, 0.4);
+    background: rgba(0, 20, 0, 0.2);
+}
+
+/* --- Submit Terminal Button --- */
+.matrix-btn {
+    background: transparent;
+    border: 1px solid var(--matrix-glow);
+    color: var(--matrix-glow);
+    padding: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: all 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+.matrix-btn:hover {
+    background: rgba(0, 255, 65, 0.1);
+    box-shadow: 0 0 12px var(--matrix-dim);
+    color: #fff;
+    border-color: #fff;
+}
