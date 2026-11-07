@@ -248,6 +248,7 @@ section, .hero-section, .projects-section, .grid-section {
     font-size: 1.05rem;
     margin-bottom: 1.8rem;
     color: #c8ffc8;
+    text-align: justify;
     }
 
 /* Green Terminal Comment Colors */
@@ -255,6 +256,7 @@ section, .hero-section, .projects-section, .grid-section {
     color: #008f11;
     margin-bottom: 0.4rem;
     font-weight: bold;
+    text-align: start;
 }
 
 /* Text Element Glow Emphasizers */
