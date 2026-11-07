@@ -256,6 +256,7 @@ section, .hero-section, .projects-section, .grid-section {
     color: #008f11;
     margin-bottom: 0.4rem;
     font-weight: bold;
+    text-align: left;
 }
 
 /* Text Element Glow Emphasizers */
